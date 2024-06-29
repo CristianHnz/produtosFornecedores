@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Projeto de Gerenciamento de Produtos e Fornecedores
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
 
-## Available Scripts
+Este projeto é uma aplicação web desenvolvida em React para gerenciar produtos e fornecedores. A aplicação permite adicionar, editar, buscar e excluir produtos e fornecedores, além de filtrar produtos por nome e fornecedor.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+### Gerenciamento de Produtos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Adicionar um novo produto
+- Editar um produto existente
+- Excluir um produto
+- Buscar produtos pelo nome
+- Filtrar produtos por fornecedor
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Gerenciamento de Fornecedores
 
-### `npm test`
+- Adicionar um novo fornecedor
+- Editar um fornecedor existente
+- Excluir um fornecedor
+- Buscar fornecedores pela descrição
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Estrutura do Projeto
 
-### `npm run build`
+O projeto é organizado da seguinte forma:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+src/
+|-- components/
+| |-- ProductForm.js
+| |-- ProductList.js
+| |-- ProductManagement.js
+| |-- SupplierForm.js
+| |-- SupplierList.js
+| |-- SupplierManagement.js
+|-- App.js
+|-- index.js
+|-- api/
+| |-- axiosConfig.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Componentes
 
-### `npm run eject`
+#### ProductForm.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Formulário para adicionar novos produtos.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### ProductList.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Lista de produtos com funcionalidades para editar e excluir.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### ProductManagement.js
 
-## Learn More
+Componente principal para o gerenciamento de produtos, incluindo a busca e filtro.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### SupplierForm.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Formulário para adicionar novos fornecedores.
 
-### Code Splitting
+#### SupplierList.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Lista de fornecedores com funcionalidades para editar e excluir.
 
-### Analyzing the Bundle Size
+#### SupplierManagement.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Componente principal para o gerenciamento de fornecedores, incluindo a busca.
 
-### Making a Progressive Web App
+## Configuração e Execução
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Pré-requisitos
 
-### Advanced Configuration
+- Node.js
+- npm ou yarn
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Instalação
 
-### Deployment
+1. Clone o repositório:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
-### `npm run build` fails to minify
+Navegue até o diretório do projeto:
+cd nome-do-repositorio
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Instale as dependências:
+npm install
+ou
+yarn install
+
+Execução
+Para iniciar o servidor de desenvolvimento, execute:
+npm start
+ou
+yarn start
+A aplicação estará disponível em http://localhost:3000.
+
+Endpoints da API
+Produtos
+GET /products: Retorna a lista de produtos
+POST /products: Adiciona um novo produto
+PUT /products/:id: Atualiza um produto existente
+DELETE /products/:id: Exclui um produto
+Fornecedores
+GET /suppliers: Retorna a lista de fornecedores
+POST /suppliers: Adiciona um novo fornecedor
+PUT /suppliers/:id: Atualiza um fornecedor existente
+DELETE /suppliers/:id: Exclui um fornecedor
+Tecnologias Utilizadas
+React
+Axios
+Material-UI.
