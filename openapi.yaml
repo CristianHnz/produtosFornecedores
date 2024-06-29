@@ -1,0 +1,216 @@
+openapi: 3.0.1
+info:
+  title: API de Produtos e Fornecedores
+  description: API para gerenciar produtos e fornecedores.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /products:
+    get:
+      summary: Retorna uma lista de todos os produtos.
+      responses:
+        '200':
+          description: Lista de produtos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      summary: Cria um novo produto.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: Produto criado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Dados inválidos.
+  /products/{id}:
+    get:
+      summary: Retorna um produto específico pelo ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalhes do produto.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Produto não encontrado.
+    put:
+      summary: Atualiza um produto existente.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Produto atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Dados inválidos.
+        '404':
+          description: Produto não encontrado.
+    delete:
+      summary: Exclui um produto existente.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Produto deletado com sucesso.
+        '404':
+          description: Produto não encontrado.
+  /suppliers:
+    get:
+      summary: Retorna uma lista de todos os fornecedores.
+      responses:
+        '200':
+          description: Lista de fornecedores.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Supplier'
+    post:
+      summary: Cria um novo fornecedor.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Supplier'
+      responses:
+        '201':
+          description: Fornecedor criado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+        '400':
+          description: Dados inválidos.
+  /suppliers/{id}:
+    get:
+      summary: Retorna um fornecedor específico pelo ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalhes do fornecedor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+        '404':
+          description: Fornecedor não encontrado.
+    put:
+      summary: Atualiza um fornecedor existente.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Supplier'
+      responses:
+        '200':
+          description: Fornecedor atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+        '400':
+          description: Dados inválidos.
+        '404':
+          description: Fornecedor não encontrado.
+    delete:
+      summary: Exclui um fornecedor existente.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Fornecedor deletado com sucesso.
+        '404':
+          description: Fornecedor não encontrado.
+  /suppliers/search:
+    get:
+      summary: Busca fornecedores pelo nome.
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de fornecedores que correspondem ao nome.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Supplier'
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        price:
+          type: number
+        supplier:
+          $ref: '#/components/schemas/Supplier'
+    Supplier:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
