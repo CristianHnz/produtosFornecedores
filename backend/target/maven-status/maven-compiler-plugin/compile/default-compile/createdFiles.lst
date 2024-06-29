@@ -1,0 +1,9 @@
+com\api\products\controllers\ProductController.class
+com\api\products\controllers\SupplierController.class
+com\api\products\entities\Supplier.class
+com\api\products\repositories\SupplierRepository.class
+com\api\products\ProductsApplication.class
+com\api\products\services\ProductService.class
+com\api\products\repositories\ProductRepository.class
+com\api\products\entities\Product.class
+com\api\products\services\SupplierService.class
